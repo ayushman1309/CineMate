@@ -23,9 +23,7 @@ app.get("/", (req, res) => res.send("Server is Live!!"));
 
 // Inngest route (with raw body)
 app.post(
-  "/api/inngest",
-  rawBody.raw({ type: "*/*" }), // important for signature verification
-  serve({ client: inngest, functions })
+  "/api/inngest", serve({ client: inngest, functions })
 );
 
 // Start server
