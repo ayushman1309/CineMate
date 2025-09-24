@@ -22,12 +22,9 @@ app.use(express.json()); // only for non-Inngest routes
 app.get("/", (req, res) => res.send("Server is Live!!"));
 
 // Inngest route (with raw body)
-app.post(
-  "/api/inngest", serve({ client: inngest, functions })
-);
-app.get(
-  "/api/inngest", serve({ client: inngest, functions }));
-
+app.post("/api/inngest", serve({ client: inngest, functions }));
+app.put("/api/inngest", serve({ client: inngest, functions }));
+app.get("/api/inngest", serve({ client: inngest, functions }));
 
 // Start server
 app.listen(port, () =>
