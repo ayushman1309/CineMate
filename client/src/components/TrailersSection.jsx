@@ -15,7 +15,7 @@ const TrailersSection = () => {
       <div className="relative mt-6 flex justify-center">
         <BlueCircle top="-100px" right="-100px" />
         <div className="rounded-xl shadow-lg overflow-hidden" style={{ width: 960, height: 540 }}>
-          <ReactPlayer
+          {/* <ReactPlayer
             key={currentTrailer.videoUrl}          // remount ensures fresh load when switching
             url={currentTrailer.videoUrl}          // e.g. "/videos/demo.mp4" if in public/videos
             playing
@@ -34,7 +34,9 @@ const TrailersSection = () => {
               },
             }}
             onError={(e) => console.warn("ReactPlayer error:", e)}
-          />
+          /> */}
+
+          <iframe src={currentTrailer.videoUrl} className="h-full w-full"/>
         </div>
       </div>
 

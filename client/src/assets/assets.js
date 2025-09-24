@@ -16,26 +16,27 @@ import backgroundImage from './backgroundImage.png'
 
 export const dummyTrailers = [
     {
-        title: "F1 – Official Teaser",
-        videoUrl: trailer, // Replace with a real trailer link
+        title: "F1 - Official Teaser",
+        videoUrl: "https://www.youtube.com/embed/8yh9BPUBbbQ", 
         image: "https://all.web.img.acsta.net/r_2500_x/img/49/78/49787f68c115177a429f394692f791c2.jpg"
     },
     {
         title: "The Running Man (2025) Teaser",
-        videoUrl: "https://youtu.be/KD18ddeFuyM?si=b1lexK3ZoGRmmbTq", // Replace with a real trailer link
+        videoUrl: "https://youtube.com/embed/KD18ddeFuyM", 
         image: "https://m.media-amazon.com/images/M/MV5BMTczMzFjOTUtNGRlZS00MDM3LWExYjEtYWYxZDNmNzI2YTRmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
     },
     {
         title: "Fantastic Four: First Steps Trailer",
-        videoUrl: "https://youtu.be/18QQWa5MEcs?si=SgWycG4E5ZnqOd06", // Replace with a real trailer link
+        videoUrl: "https://youtube.com/embed/18QQWa5MEcs", 
         image: "https://m.media-amazon.com/images/M/MV5BOGM5MzA3MDAtYmEwMi00ZDNiLTg4MDgtMTZjOTc0ZGMyNTIwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
     },
     {
         title: "Sinners (2025) Trailer",
-        videoUrl: "https://youtu.be/bKGxHflevuk?si=Ff_gNSqmP3V4oC1d", // Replace with a real trailer link
+        videoUrl: "https://youtube.com/embed/bKGxHflevuk", 
         image: "https://www.heavenofhorror.com/wp-content/uploads/2024/09/Sinners-2025-horror-movie-1.jpg"
     }
 ];
+
 
 
 
@@ -182,25 +183,26 @@ export const dummyShowsData = [
         "vote_count": 19885,
         "runtime": 170,
     },
-    // {
-    //     "_id": "986056",
-    //     "id": 986056,
-    //     "title": "Thunderbolts*",
-    //     "overview": "After finding themselves ensnared in a death trap, seven disillusioned castoffs must embark on a dangerous mission that will force them to confront the darkest corners of their pasts.",
-    //     "poster_path": "https://www.themoviedb.org/t/p/w1280/hqcexYHbiTBfDIdDWxrxPtVndBX.jpg",
-    //     "genres": [
-    //         { "id": 28, "name": "Action" },
-    //         { "id": 878, "name": "Science Fiction" },
-    //         { "id": 12, "name": "Adventure" }
-    //     ],
-    //     "casts": dummyCastsData,
-    //     "release_date": "2025-10-30",
-    //     "original_language": "en",
-    //     "tagline": "Everyone deserves a second shot.",
-    //     "vote_average": 7.443,
-    //     "vote_count": 23569,
-    //     "runtime": 127,
-    // }
+    {
+        "_id": "986056",
+        "id": 986056,
+        "title": "Thunderbolts*",
+        "overview": "After finding themselves ensnared in a death trap, seven disillusioned castoffs must embark on a dangerous mission that will force them to confront the darkest corners of their pasts.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/hqcexYHbiTBfDIdDWxrxPtVndBX.jpg",
+        "backdrop_path": "https://www.themoviedb.org/t/p/w1280/hqcexYHbiTBfDIdDWxrxPtVndBX.jpg",
+        "genres": [
+            { "id": 28, "name": "Action" },
+            { "id": 878, "name": "Science Fiction" },
+            { "id": 12, "name": "Adventure" }
+        ],
+        "casts": dummyCastsData,
+        "release_date": "2025-10-30",
+        "original_language": "en",
+        "tagline": "Everyone deserves a second shot.",
+        "vote_average": 7.443,
+        "vote_count": 23569,
+        "runtime": 127,
+    }
 ]
 
 export const dummyDateTimeData = {
