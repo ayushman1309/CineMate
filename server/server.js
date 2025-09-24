@@ -26,10 +26,8 @@ app.post(
   "/api/inngest", serve({ client: inngest, functions })
 );
 app.get(
-  "/api/inngest", (req , res) => {
-    res.send("Ok");
-  }
-  );
+  "/api/inngest", serve({ client: inngest, functions }));
+
 
 // Start server
 app.listen(port, () =>
