@@ -5,7 +5,8 @@ import connectDB from "./config/db.js";
 import { serve } from "inngest/express";
 import { clerkMiddleware } from "@clerk/express";
 import { functions, inngest } from "./inngest/index.js";
-import rawBody from "body-parser"; // add this
+import showRouter from "./routes/showRoutes.js";
+
 
 const app = express();
 const port = 3000;
@@ -20,11 +21,9 @@ app.use(express.json()); // only for non-Inngest routes
 
 // API Routes
 app.get("/", (req, res) => res.send("Server is Live!!"));
+app.use("/api/inngest", serve({ client: inngest, functions }));
+app.use('/api/show' , showRouter)
 
-// Inngest route (with raw body)
-app.post("/api/inngest", serve({ client: inngest, functions }));
-app.put("/api/inngest", serve({ client: inngest, functions }));
-app.get("/api/inngest", serve({ client: inngest, functions }));
 
 // Start server
 app.listen(port, () =>
