@@ -1,21 +1,16 @@
-import { Inngest } from "inngest"
-import User from "../models/User.js"
+import { Inngest } from "inngest";
+import User from "../models/User.js";
 import Booking from "../models/Booking.js";
 import Show from "../models/Show.js";
-//create a client to send and receive events
+import sendEmail from "../configs/nodeMailer.js";
 
-export const inngest = new Inngest({
-  id:"movie-ticket-booking"
-});
+// Create a client to send and receive events
+export const inngest = new Inngest({ id: "movie-ticket-booking" });
 
-// Inngest function to save user data to a database
+// Inngest function to save user data to the database
 const syncUserCreation = inngest.createFunction(
-  { 
-    id: "sync-user-from-clerk" 
-  },
-  { 
-    event: "clerk/user.created" 
-  },
+  { id: "sync-user-from-clerk" },
+  { event: "clerk/user.created" },
   async ({ event }) => {
     const { id, first_name, last_name, email_addresses, image_url } =
       event.data;
@@ -28,6 +23,7 @@ const syncUserCreation = inngest.createFunction(
     await User.create(userData);
   }
 );
+
 // Inngest function to delete user data from database
 const syncUserDeletion = inngest.createFunction(
   { id: "delete-user-with-clerk" },

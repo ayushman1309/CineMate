@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";            // keep direct import with Vite
 import { PlayCircleIcon } from "lucide-react";
-import BlueCircle from "./BlueCircle";
+import BlueCircle from "./BlurCircle";
 import { dummyTrailers } from "../assets/assets";
 
 const TrailersSection = () => {

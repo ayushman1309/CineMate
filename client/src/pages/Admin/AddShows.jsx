@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
-import Title from "../../components/Admin/Title.jsx";
-import { CheckIcon, DeleteIcon, StarIcon, Trash2Icon } from "lucide-react";
+import Title from "../../components/admin/Title";
+import { CheckIcon, StarIcon, Trash2Icon } from "lucide-react";
 import kConverter from "../../lib/kConverter";
+import { useAppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
-import { dummyShowsData } from "../../assets/assets.js";
 
 const AddShows = () => {
-  
+  const { axios, getToken, user, image_base_url } = useAppContext();
 
   const currency = import.meta.env.VITE_CURRENCY;
 
@@ -20,7 +20,16 @@ const AddShows = () => {
   const [addingShow, setAddingShow] = useState(false);
 
   const fetchNowPlayingMovies = async () => {
-    setNowPlayingmovies(dummyShowsData)
+    try {
+      const { data } = await axios.get("/api/show/now-playing", {
+        headers: { Authorization: `Bearer ${await getToken()}` },
+      });
+      if (data.success) {
+        setNowPlayingmovies(data.movies);
+      }
+    } catch (error) {
+      console.error("Error getching movies:", error);
+    }
   };
 
   const handleDateTimeAdd = async () => {
@@ -49,8 +58,10 @@ const AddShows = () => {
   };
 
   useEffect(() => {
-    fetchNowPlayingMovies();
-  }, []);
+    if (user) {
+      fetchNowPlayingMovies();
+    }
+  }, [user]);
 
   const handleSubmit = async () => {
     try {
@@ -99,16 +110,15 @@ const AddShows = () => {
           {nowPlayingmovies.map((movie) => (
             <div
               key={movie.id}
-              onClick={() => setSelectedMovie(Number(movie.id))}
+              onClick={() => setSelectedMovie(movie.id)}
               className={`relative max-w-40 cursor-pointer group-hover:not-hover:opacity-40 hover:-translate-y-1 transition duration-300`}
             >
               <div className="relative rounded-lg overflow-hidden">
                 <img
-                  src={movie.poster_path}
-                  alt={movie.title}
+                  src={image_base_url + movie.poster_path}
+                  alt=""
                   className="w-full object-cover brightness-90"
                 />
-
                 <div className="text-sm flex items-center justify-between p-2 bg-black/70 w-full absolute bottom-0 left-0">
                   <p className="flex items-center gap-1 text-gray-400">
                     <StarIcon className="w-4 h-4 text-primary fill-primary" />
@@ -124,7 +134,6 @@ const AddShows = () => {
                   <CheckIcon className="w-4 h-4 text-white" strokeWidth={2.5} />
                 </div>
               )}
-
               <p className="font-medium truncate">{movie.title}</p>
               <p className="text-gray-400 text-sm">{movie.release_date}</p>
             </div>
@@ -185,7 +194,7 @@ const AddShows = () => {
                       className="border border-primary px-2 py-1 flex items-center rounded"
                     >
                       <span>{time}</span>
-                      <DeleteIcon
+                      <Trash2Icon
                         onClick={() => handleRemoveTime(date, time)}
                         width={15}
                         className="ml-2 text-red-500 hover:text-red-700 cursor-pointer"

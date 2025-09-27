@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import BlueCircle from './BlueCircle'
+import BlueCircle from './BlurCircle'
 import { ChevronRightIcon, ChevronsLeftIcon } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'

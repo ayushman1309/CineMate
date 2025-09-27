@@ -1,24 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import { dummyBookingData } from '../../assets/assets.js';
-import Title from '../../components/Admin/Title';
-import { dateFormat } from '../../lib/dateFormat';
-import Loading from '../../components/Loading.jsx';
+import React, { useEffect, useState } from "react";
+import Title from "../../components/admin/Title";
+import Loading from "../../components/Loading";
+//import { dummyBookingData } from "../../assets/assets";
+import { dateFormat } from "../../lib/dateFormat";
+import { useAppContext } from "../../context/AppContext";
 
 const ListBookings = () => {
+  const currency = import.meta.env.VITE_CURRENCY;
 
-  const currency = import.meta.env.VITE_CURRENCY
+  const { axios, getToken, user } = useAppContext();
 
-  const [bookings , setBookings] = useState([]);
-  const [isLoading , setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [bookings, setBookings] = useState([]);
 
   const getAllBookings = async () => {
-    setBookings(dummyBookingData)
-    setIsLoading(false)
-  }
+    try {
+      const { data } = await axios.get("/api/admin/all-bookings", {
+        headers: { Authorization: `Bearer ${await getToken()}` },
+      });
+      setBookings(data.bookings);
+    } catch (error) {
+      console.error(error);
+    }
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    getAllBookings();
-  } , [])
+    if (user) {
+      getAllBookings();
+    }
+  }, [user]);
 
   return !isLoading ? (
     <>
@@ -62,6 +73,6 @@ const ListBookings = () => {
       <Loading />
     </div>
   );
-}
+};
 
-export default ListBookings
+export default ListBookings;

@@ -5,10 +5,25 @@ import { inngest } from "../inngest/index.js";
 
 //API to get now playing movie from TMDB API.
 export const getNowPlayingMovies = async (req, res) => {
+  try {
+    const { data } = await axios.get(
+      "https://api.themoviedb.org/3/movie/now_playing",
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const movies = data.results;
+    res.json({ success: true, movies: movies });
+  } catch (error) {
+    console.error(error);
+    res.json({ success: false, message: error.message });
+  }
 };
 
 // API to add new show to the database
-
 export const addShow = async (req, res) => {
   try {
     const { movieId, showsInput, showPrice } = req.body;
@@ -81,7 +96,6 @@ export const addShow = async (req, res) => {
   }
 };
 
-
 // API to get all shows from database
 export const getShows = async (req, res) => {
   try {
@@ -92,22 +106,14 @@ export const getShows = async (req, res) => {
       .populate("movie")
       .sort({ showDateTime: 1 });
 
-    // Collect unique movies
-    const movieMap = {};
-    shows.forEach((show) => {
-      if (show.movie && !movieMap[show.movie._id]) {
-        movieMap[show.movie._id] = show.movie;
-      }
-    });
-
-    res.json({ success: true, shows: Object.values(movieMap) });
+    // Filter unique shows
+    const uniqueShows = new Set(shows.map((show) => show.movie));
+    res.json({ success: true, shows: Array.from(uniqueShows) });
   } catch (error) {
     console.error(error);
     res.json({ success: false, message: error.message });
   }
 };
-
-
 
 // API to get single show from the database
 export const getShow = async (req, res) => {

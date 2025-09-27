@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import BlueCircle from './BlueCircle'
+import BlueCircle from './BlurCircle'
 import { dummyShowsData } from '../assets/assets'
 import MovieCard from './MovieCard'
 
