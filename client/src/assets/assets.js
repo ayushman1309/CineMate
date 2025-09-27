@@ -21,19 +21,19 @@ export const dummyTrailers = [
         image: "https://all.web.img.acsta.net/r_2500_x/img/49/78/49787f68c115177a429f394692f791c2.jpg"
     },
     {
-        title: "The Running Man (2025) Teaser",
-        videoUrl: "https://youtube.com/embed/KD18ddeFuyM", 
-        image: "https://m.media-amazon.com/images/M/MV5BMTczMzFjOTUtNGRlZS00MDM3LWExYjEtYWYxZDNmNzI2YTRmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        title: "Demon Slayer - Infinity Castle Trailer",
+        videoUrl: "https://www.youtube.com/embed/x7uLutVRBfI", 
+        image: "https://th.bing.com/th?id=OIF.SOqHxWo8eLPQ0i63gK%2fFCA&rs=1&pid=ImgDetMain&o=7&rm=3"
     },
     {
-        title: "Fantastic Four: First Steps Trailer",
-        videoUrl: "https://youtube.com/embed/18QQWa5MEcs", 
-        image: "https://m.media-amazon.com/images/M/MV5BOGM5MzA3MDAtYmEwMi00ZDNiLTg4MDgtMTZjOTc0ZGMyNTIwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        title: "The Conjuring - Last Rites Trailer",
+        videoUrl: "https://www.youtube.com/embed/bMgfsdYoEEo", 
+        image: "https://tse3.mm.bing.net/th/id/OIP.pBXG8dFhGnOIXmO3-JqLXgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
     },
     {
-        title: "Sinners (2025) Trailer",
-        videoUrl: "https://youtube.com/embed/bKGxHflevuk", 
-        image: "https://www.heavenofhorror.com/wp-content/uploads/2024/09/Sinners-2025-horror-movie-1.jpg"
+        title: "Weapons",
+        videoUrl: "https://www.youtube.com/embed/OpThntO9ixc", 
+        image: "https://static1.srcdn.com/wordpress/wp-content/uploads/2025/04/weapons-poster.jpeg"
     }
 ];
 
@@ -41,26 +41,93 @@ export const dummyTrailers = [
 
 
 
-
 const dummyCastsData = [
-    { "name": "Milla Jovovich", "profile_path": "https://image.tmdb.org/t/p/original/usWnHCzbADijULREZYSJ0qfM00y.jpg", },
-    { "name": "Dave Bautista", "profile_path": "https://image.tmdb.org/t/p/original/snk6JiXOOoRjPtHU5VMoy6qbd32.jpg", },
-    { "name": "Arly Jover", "profile_path": "https://image.tmdb.org/t/p/original/zmznPrQ9GSZwcOIUT0c3GyETwrP.jpg", },
-    { "name": "Amara Okereke", "profile_path": "https://image.tmdb.org/t/p/original/nTSPtzWu6deZTJtWXHUpACVznY4.jpg", },
-    { "name": "Fraser James", "profile_path": "https://image.tmdb.org/t/p/original/mGAPQG2OKTgdKFkp9YpvCSqcbgY.jpg", },
-    { "name": "Deirdre Mullins", "profile_path": "https://image.tmdb.org/t/p/original/lJm89neuiVlYISEqNpGZA5kTAnP.jpg", },
-    { "name": "Sebastian Stankiewicz", "profile_path": "https://image.tmdb.org/t/p/original/hLN0Ca09KwQOFLZLPIEzgTIbqqg.jpg", },
-    { "name": "Tue Lunding", "profile_path": "https://image.tmdb.org/t/p/original/qY4W0zfGBYzlCyCC0QDJS1Muoa0.jpg", },
-    { "name": "Jacek Dzisiewicz", "profile_path": "https://image.tmdb.org/t/p/original/6Ksb8ANhhoWWGnlM6O1qrySd7e1.jpg", },
-    { "name": "Ian Hanmore", "profile_path": "https://image.tmdb.org/t/p/original/yhI4MK5atavKBD9wiJtaO1say1p.jpg", },
-    { "name": "Eveline Hall", "profile_path": "https://image.tmdb.org/t/p/original/uPq4xUPiJIMW5rXF9AT0GrRqgJY.jpg", },
-    { "name": "Kamila Klamut", "profile_path": "https://image.tmdb.org/t/p/original/usWnHCzbADijULREZYSJ0qfM00y.jpg", },
-    { "name": "Caoilinn Springall", "profile_path": "https://image.tmdb.org/t/p/original/uZNtbPHowlBYo74U1qlTaRlrdiY.jpg", },
-    { "name": "Jan Kowalewski", "profile_path": "https://image.tmdb.org/t/p/original/snk6JiXOOoRjPtHU5VMoy6qbd32.jpg", },
-    { "name": "Pawel Wysocki", "profile_path": "https://image.tmdb.org/t/p/original/zmznPrQ9GSZwcOIUT0c3GyETwrP.jpg", },
-    { "name": "Simon Lööf", "profile_path": "https://image.tmdb.org/t/p/original/cbZrB8crWlLEDjVUoak8Liak6s.jpg", },
-    { "name": "Tomasz Cymerman", "profile_path": "https://image.tmdb.org/t/p/original/nTSPtzWu6deZTJtWXHUpACVznY4.jpg", }
-]
+  {
+    name: "Milla Jovovich",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/usWnHCzbADijULREZYSJ0qfM00y.jpg",
+  },
+  {
+    name: "Dave Bautista",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/snk6JiXOOoRjPtHU5VMoy6qbd32.jpg",
+  },
+  {
+    name: "Arly Jover",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/zmznPrQ9GSZwcOIUT0c3GyETwrP.jpg",
+  },
+  {
+    name: "Amara Okereke",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/nTSPtzWu6deZTJtWXHUpACVznY4.jpg",
+  },
+  {
+    name: "Fraser James",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/mGAPQG2OKTgdKFkp9YpvCSqcbgY.jpg",
+  },
+  {
+    name: "Deirdre Mullins",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/lJm89neuiVlYISEqNpGZA5kTAnP.jpg",
+  },
+  {
+    name: "Sebastian Stankiewicz",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/hLN0Ca09KwQOFLZLPIEzgTIbqqg.jpg",
+  },
+  {
+    name: "Tue Lunding",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/qY4W0zfGBYzlCyCC0QDJS1Muoa0.jpg",
+  },
+  {
+    name: "Jacek Dzisiewicz",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/6Ksb8ANhhoWWGnlM6O1qrySd7e1.jpg",
+  },
+  {
+    name: "Ian Hanmore",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/yhI4MK5atavKBD9wiJtaO1say1p.jpg",
+  },
+  {
+    name: "Eveline Hall",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/uPq4xUPiJIMW5rXF9AT0GrRqgJY.jpg",
+  },
+  {
+    name: "Kamila Klamut",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/usWnHCzbADijULREZYSJ0qfM00y.jpg",
+  },
+  {
+    name: "Caoilinn Springall",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/uZNtbPHowlBYo74U1qlTaRlrdiY.jpg",
+  },
+  {
+    name: "Jan Kowalewski",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/snk6JiXOOoRjPtHU5VMoy6qbd32.jpg",
+  },
+  {
+    name: "Pawel Wysocki",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/zmznPrQ9GSZwcOIUT0c3GyETwrP.jpg",
+  },
+  {
+    name: "Simon Lööf",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/cbZrB8crWlLEDjVUoak8Liak6s.jpg",
+  },
+  {
+    name: "Tomasz Cymerman",
+    profile_path:
+      "https://image.tmdb.org/t/p/original/nTSPtzWu6deZTJtWXHUpACVznY4.jpg",
+  },
+];
 
 export const dummyShowsData = [
   {
@@ -397,7 +464,6 @@ export const dummyDateTimeData = {
   ],
 };
 
-
 export const dummyDashboardData = {
   totalBookings: 14,
   totalRevenue: 1517,
@@ -468,8 +534,6 @@ export const dummyDashboardData = {
   ],
 };
 
-
-
 export const dummyBookingData = [
   {
     _id: "68396334fb83252d82e17295",
@@ -511,12 +575,3 @@ export const dummyBookingData = [
     isPaid: true,
   },
 ];
-
-
-
-
-
-
-
-
-

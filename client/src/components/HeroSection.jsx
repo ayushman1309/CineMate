@@ -40,13 +40,13 @@ const HeroSection = () => {
         </p>
 
         {/* Button */}
-        <button
+        {/* <button
           onClick={() => navigate('/movies')}
           className="flex items-center gap-2 px-4 py-2 text-sm md:text-base  bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer w-fit mt-6"
         >
           Explore Movies
           <ArrowRight className="w-5 h-5" />
-        </button>
+        </button> */}
       </div>
     </div>
   )

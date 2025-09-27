@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="md:max-w-96">
                     <img alt="" className="w-23 h-10 rounded-2xl" src={logo} />
                     <p className="mt-6 text-sm">
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        Fast, easy, and hassle-free movie bookings. Check showtimes, select seats, and secure your tickets instantly—anytime, anywhere.
                     </p>
                     <div className="flex items-center gap-2 mt-4">
                         <img src={assets.googlePlay} className="h-9 w-auto" />

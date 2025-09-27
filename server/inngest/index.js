@@ -112,7 +112,7 @@ const sendBookingConfirmationEmail = inngest.createFunction(
                       })}
                   </p>
                   <p>Enjoy the show! 🍿</p>
-                  <p>Thanks for booking with us!<br/>- QuickShow Team</p>
+                  <p>Thanks for booking with us!<br/>- CineMate Team</p>
              </div>`,
     });
   }

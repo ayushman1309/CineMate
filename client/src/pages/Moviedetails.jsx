@@ -89,7 +89,7 @@ const MovieDetails = () => {
           </p>
 
           <div className="flex items-center flex-wrap gap-4 mt-4">
-            <Link
+            {/* <Link
               to={show.movie.trailer}
               target="_blank"
               rel="noopener noreferrer"
@@ -98,7 +98,7 @@ const MovieDetails = () => {
                 <PlayCircleIcon className="w-5 h-5" />
                 Watch Trailer
               </button>
-            </Link>
+            </Link> */}
 
             <a
               href="#dateSelect"
