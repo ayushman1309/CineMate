@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Title from "../../components/admin/Title";
+import Title from "../../components/Admin/Title.jsx";
 import Loading from "../../components/Loading";
 //import { dummyBookingData } from "../../assets/assets";
 import { dateFormat } from "../../lib/dateFormat";
