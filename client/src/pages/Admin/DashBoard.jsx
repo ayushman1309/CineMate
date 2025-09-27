@@ -7,11 +7,11 @@ import {
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 //import { dummyDashboardData } from "../../assets/assets";
-import Loading from "../../components/Loading";
-import Title from "../../components/Admin/Title.jsx";
-import BlurCircle from "../../components/BlurCircle";
-import { dateFormat } from "../../lib/dateFormat";
-import { useAppContext } from "../../context/AppContext";
+import Loading from "../../components/Loading.jsx";
+import Title from "../../components/admin/Title.jsx";
+import BlurCircle from "../../components/BlurCircle.jsx";
+import { dateFormat } from "../../lib/dateFormat.js";
+import { useAppContext } from "../../context/AppContext.jsx";
 import toast from "react-hot-toast";
 
 const Dashboard = () => {

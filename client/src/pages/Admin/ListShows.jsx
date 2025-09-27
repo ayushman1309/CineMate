@@ -1,10 +1,10 @@
 
 import React, { useEffect, useState } from "react";
-import Title from "../../components/Admin/Title.jsx";
+import Title from "../../components/admin/Title.jsx";
 //import { dummyShowsData } from "../../assets/assets";
-import Loading from "../../components/Loading";
-import { dateFormat } from "../../lib/dateFormat";
-import { useAppContext } from "../../context/AppContext";
+import Loading from "../../components/Loading.jsx";
+import { dateFormat } from "../../lib/dateFormat.js";
+import { useAppContext } from "../../context/AppContext.jsx";
 
 const ListShows = () => {
   const { axios, getToken, user } = useAppContext();

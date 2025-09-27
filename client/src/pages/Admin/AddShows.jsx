@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Loading from "../../components/Loading";
-import Title from "../../components/Admin/Title.jsx";
+import Loading from "../../components/Loading.jsx";
+import Title from "../../components/admin/Title.jsx";
 import { CheckIcon, StarIcon, Trash2Icon } from "lucide-react";
-import kConverter from "../../lib/kConverter";
-import { useAppContext } from "../../context/AppContext";
+import kConverter from "../../lib/kConverter.js";
+import { useAppContext } from "../../context/AppContext.jsx";
 import toast from "react-hot-toast";
 
 const AddShows = () => {
