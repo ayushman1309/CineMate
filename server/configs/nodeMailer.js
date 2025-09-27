@@ -1,8 +1,10 @@
 import nodemailer from "nodemailer";
+import { configDotenv } from "dotenv";
+configDotenv();
 
 // Create a transporter for SMTP
 const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
+  host: process.env.SMTP_SERVER,
   port: 587,
   auth: {
     user: process.env.SMTP_USER,
@@ -12,7 +14,7 @@ const transporter = nodemailer.createTransport({
 
 const sendEmail = async ({ to, subject, body }) => {
   const response = await transporter.sendMail({
-    from: process.env.SENDER_EMAIL,
+    from: process.env.SMTP_USER,
     to,
     subject,
     html: body,

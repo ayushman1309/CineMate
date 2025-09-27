@@ -13,3 +13,4 @@ build/
 # VS Code / IDE settings
 .vscode/
 .idea/
+testmail.js
