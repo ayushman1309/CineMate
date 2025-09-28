@@ -1,30 +1,30 @@
-
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { MenuIcon, SearchIcon, TicketPlus, XIcon } from 'lucide-react'
-import { useClerk, UserButton, useUser } from '@clerk/clerk-react'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { MenuIcon, SearchIcon, TicketPlus, XIcon } from "lucide-react";
+import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 
 // Import logo directly
-import logo from '../assets/logo.png'
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const { user } = useUser()
-  const { openSignIn } = useClerk()
-  const navigate = useNavigate()
-  const redirectUrl = import.meta.env.VITE_CLERK_SIGN_IN_FORCE_REDIRECT_URL
+  const { user } = useUser();
+  const { openSignIn } = useClerk();
+  const navigate = useNavigate();
+  const redirectUrl = import.meta.env.VITE_CLERK_SIGN_IN_FORCE_REDIRECT_URL;
 
   return (
-    <div className="fixed top-0 left-0 z-50 w-full flex items-center 
-    justify-between px-6 md:px-16 lg:px-36 py-5">
-
+    <div
+      className="fixed top-0 left-0 z-50 w-full flex items-center 
+    justify-between px-6 md:px-16 lg:px-36 py-5"
+    >
       {/* Logo */}
       <Link to="/" className="max-md:flex-1">
-        <img 
-          src={logo} 
-          alt="CineMate" 
-          className="w-23 h-10 m-2  rounded-2xl cursor-pointer" 
+        <img
+          src={logo}
+          alt="CineMate"
+          className="w-23 h-10 m-2  rounded-2xl cursor-pointer"
         />
       </Link>
 
@@ -35,46 +35,81 @@ const Navbar = () => {
         max-md:justify-center gap-8 min-md:px-8 py-3 max-md:h-screen
         min-md:rounded-full backdrop-blur bg-black/70 md:bg-white/10 
         md:border border-gray-300/20 overflow-hidden transition-[width] 
-        duration-300 ${isOpen ? 'max-md:w-full' : 'max-md:w-0'}`}
+        duration-300 ${isOpen ? "max-md:w-full" : "max-md:w-0"}`}
       >
         <XIcon
           onClick={() => setIsOpen(false)}
           className="md:hidden absolute top-6 right-6 w-6 h-6 cursor-pointer"
         />
 
-        <Link to="/" onClick={() => {scroll(0,0) ; setIsOpen(false)}}>Home</Link>
-        <Link to="/movies" onClick={() => {scroll(0,0) ; setIsOpen(false)}}>Movies</Link>
-        <Link to="/" onClick={() => {scroll(0,0) ; setIsOpen(false)}}>Theaters</Link>
+        <Link
+          to="/"
+          onClick={() => {
+            scroll(0, 0);
+            setIsOpen(false);
+          }}
+        >
+          Home
+        </Link>
+        <Link
+          to="/movies"
+          onClick={() => {
+            scroll(0, 0);
+            setIsOpen(false);
+          }}
+        >
+          Movies
+        </Link>
+        <Link
+          to="/"
+          onClick={() => {
+            scroll(0, 0);
+            setIsOpen(false);
+          }}
+        >
+          Theaters
+        </Link>
         {/* <Link to="/" onClick={() => {scroll(0,0) ; setIsOpen(false)}}>Releases</Link> */}
-        <Link to="/favorite" onClick={() => {scroll(0,0) ; setIsOpen(false)}}>Favorites</Link>
+        <Link
+          to="/favorite"
+          onClick={() => {
+            scroll(0, 0);
+            setIsOpen(false);
+          }}
+        >
+          Favorites
+        </Link>
       </div>
 
       <div className="flex items-center gap-8">
         <SearchIcon className="max-md:hidden w-8 h-6 cursor-pointer" />
-        { 
-          !user ? (
-            <button onClick={() => openSignIn({
-              forceRedirectUrl: redirectUrl,
-              afterSignOutUrl: redirectUrl,
-              fallbackRedirectUrl: redirectUrl,
-              signUpForceRedirectUrl: redirectUrl,
-              signUpFallbackRedirectUrl: redirectUrl,
-            })} className="px-4 py-1 sm:py-2 bg-primary hover:bg-primary-dull 
-            transition rounded-full font-medium cursor-pointer">
-              Login
-            </button>
-          ) : (
-            <UserButton>
-              <UserButton.MenuItems>
-                <UserButton.Action 
-                  label="My Bookings" 
-                  labelIcon={<TicketPlus width={15}/>} 
-                  onClick={() => navigate('/my-bookings')}
-                />
-              </UserButton.MenuItems>
-            </UserButton>
-          )
-        }
+        {!user ? (
+          <button
+            onClick={() =>
+              openSignIn({
+                forceRedirectUrl: redirectUrl,
+                afterSignOutUrl: redirectUrl,
+                fallbackRedirectUrl: redirectUrl,
+                signUpForceRedirectUrl: redirectUrl,
+                signUpFallbackRedirectUrl: redirectUrl,
+              })
+            }
+            className="px-4 py-1 sm:py-2 bg-primary hover:bg-primary-dull 
+            transition rounded-full font-medium cursor-pointer"
+          >
+            Login
+          </button>
+        ) : (
+          <UserButton>
+            <UserButton.MenuItems>
+              <UserButton.Action
+                label="My Bookings"
+                labelIcon={<TicketPlus width={15} />}
+                onClick={() => navigate("/my-bookings")}
+              />
+            </UserButton.MenuItems>
+          </UserButton>
+        )}
       </div>
 
       {/* Hamburger Menu Icon */}
@@ -83,7 +118,7 @@ const Navbar = () => {
         className="max-md:ml-4 md:hidden w-8 h-8 cursor-pointer"
       />
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
