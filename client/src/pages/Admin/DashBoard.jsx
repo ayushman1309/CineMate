@@ -8,7 +8,7 @@ import {
 import React, { useEffect, useState } from "react";
 //import { dummyDashboardData } from "../../assets/assets";
 import Loading from "../../components/Loading.jsx";
-import Title from "../../components/admin/Title";
+import Title from "../../components/Admin/Title.jsx";
 
 import BlurCircle from "../../components/BlurCircle.jsx";
 import { dateFormat } from "../../lib/dateFormat.js";
