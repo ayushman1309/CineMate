@@ -4,6 +4,7 @@ import {
   getNowPlayingMovies,
   getShow,
   getShows,
+  getTMDBMovies,
 } from "../controllers/showController.js";
 import { protectAdmin } from "../middleware/auth.js";
 import Movie from "../models/Movie.js";
@@ -19,6 +20,7 @@ showRouter.get("/test-movies", async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 });
+showRouter.get("/now-playing-tmdb", getTMDBMovies)
 showRouter.post("/add", protectAdmin, addShow);
 showRouter.get("/all", getShows);
 showRouter.get("/:movieId", getShow);

@@ -22,14 +22,15 @@ const AddShows = () => {
 
   const fetchNowPlayingMovies = async () => {
     try {
-      const { data } = await axios.get("/api/show/now-playing", {
+      const { data } = await axios.get("/api/show/now-playing-tmdb", {
         headers: { Authorization: `Bearer ${await getToken()}` },
       });
+
       if (data.success) {
         setNowPlayingmovies(data.movies);
       }
     } catch (error) {
-      console.error("Error getching movies:", error);
+      console.error("Error fetching movies:", error);
     }
   };
 
@@ -102,13 +103,13 @@ const AddShows = () => {
     }
   };
 
-  return nowPlayingmovies.length > 0 ? (
+  return (
     <>
       <Title text1="Add" text2="Shows" />
       <p className="mt-10 text-lg font-medium">Now Playing Movies</p>
       <div className="overflow-x-auto pb-4">
         <div className="group flex flex-wrap gap-4 mt-4 w-max">
-          {nowPlayingmovies.map((movie) => (
+          {nowPlayingmovies?.map((movie) => (
             <div
               key={movie.id}
               onClick={() => setSelectedMovie(movie.id)}
@@ -217,9 +218,7 @@ const AddShows = () => {
         Add Show
       </button>
     </>
-  ) : (
-    <Loading />
-  );
+  )
 };
 
 export default AddShows;

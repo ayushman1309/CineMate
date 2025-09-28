@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
+export const API_BASE_URL = import.meta.env.VITE_BASE_URL;
+
 
 export const AppContext = createContext();
 

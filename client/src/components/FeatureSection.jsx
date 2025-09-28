@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import BlueCircle from './BlurCircle'
 import MovieCard from './MovieCard'
 import axios from 'axios'
+import { API_BASE_URL } from '../context/AppContext'
 
 const FeatureSection = () => {
   const navigate = useNavigate()
@@ -12,7 +13,7 @@ const FeatureSection = () => {
   useEffect(() => {
     const fetchMovies = async () => {
   try {
-    const res = await axios.get("http://localhost:3000/api/show/all")
+    const res = await axios.get(`${API_BASE_URL}/api/show/all`)
     console.log("API Response:", res.data)
 
     // If backend sends { shows: [...] }
