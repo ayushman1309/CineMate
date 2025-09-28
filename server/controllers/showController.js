@@ -3,20 +3,47 @@ import Movie from "../models/Movie.js";
 import Show from "../models/Show.js";
 import { inngest } from "../inngest/index.js";
 
-//API to get now playing movie from TMDB API.
+//API to get now playing movies from database
 export const getNowPlayingMovies = async (req, res) => {
   try {
-    const { data } = await axios.get(
-      "https://api.themoviedb.org/3/movie/now_playing",
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
-          "Content-Type": "application/json",
-        },
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Start of today
+
+    console.log("Fetching shows from database...");
+    
+    // First, let's check if there are any movies in the database at all
+    const allMovies = await Movie.find({});
+    console.log("Total movies in database:", allMovies.length);
+    console.log("All movies:", allMovies.map(m => ({ title: m.title, _id: m._id })));
+
+    const shows = await Show.find({ showDateTime: { $gte: today } })
+      .populate("movie")
+      .sort({ showDateTime: 1 });
+
+    console.log("Found shows:", shows.length);
+    console.log("Shows with movies:", shows.filter(show => show.movie).length);
+
+    // Get unique movies from shows
+    const uniqueMovies = [];
+    const seenMovies = new Set();
+    
+    shows.forEach((show) => {
+      if (show.movie && !seenMovies.has(show.movie._id.toString())) {
+        seenMovies.add(show.movie._id.toString());
+        uniqueMovies.push(show.movie);
       }
-    );
-    const movies = data.results;
-    res.json({ success: true, movies: movies });
+    });
+
+    console.log("Unique movies found:", uniqueMovies.length);
+    console.log("Movies:", uniqueMovies.map(m => ({ title: m.title, _id: m._id })));
+
+    // If no movies with shows, return all movies from database
+    if (uniqueMovies.length === 0 && allMovies.length > 0) {
+      console.log("No shows found, returning all movies from database");
+      res.json({ success: true, movies: allMovies });
+    } else {
+      res.json({ success: true, movies: uniqueMovies });
+    }
   } catch (error) {
     console.error(error);
     res.json({ success: false, message: error.message });

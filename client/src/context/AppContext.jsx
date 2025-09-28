@@ -38,12 +38,22 @@ export const AppProvider = ({ children }) => {
 
   const fetchShows = async () => {
   try {
-    const { data } = await axios.get("/api/show/now-playing");
-    if (data.success) {
-      setShows(data.movies);
+    console.log("Fetching admin-added shows from API (/api/show/all)...");
+    const response = await axios.get("/api/show/all");
+    console.log("API response data:", response.data);
+
+    if (response.data.success) {
+      const uniqueMovies = response.data.shows || [];
+      console.log("Movies from DB (unique by show):", uniqueMovies);
+      setShows(uniqueMovies);
+    } else {
+      console.error("API returned success: false", response.data.message);
+      setShows([]);
     }
   } catch (error) {
     console.error("Error fetching movies:", error);
+    console.error("Error details:", error.response?.data);
+    setShows([]);
   }
 };
 
