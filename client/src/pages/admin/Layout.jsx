@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import AdminNavbar from "../../components/admin/AdminNavbar.jsx";
-import AdminSidebar from "../../components/admin/AdminSidebar.jsx";
+import AdminNavbar from "../../components/admin/AdminNavbar";
+import AdminSideBar from "../../components/admin/AdminSideBar";
 import { Outlet } from "react-router-dom";
-import { useAppContext } from "../../context/AppContext.jsx";
-import Loading from "../../components/Loading.jsx";
+import { useAppContext } from "../../context/AppContext";
+import Loading from "../../components/Loading";
 
 const Layout = () => {
   const { isAdmin, fetchIsAdmin } = useAppContext();
