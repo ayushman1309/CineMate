@@ -37,17 +37,16 @@ export const AppProvider = ({ children }) => {
   };
 
   const fetchShows = async () => {
-    try {
-      const { data } = await axios.get("/api/show/all");
-      if (data.success) {
-        setShows(data.shows);
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      console.error(error);
+  try {
+    const { data } = await axios.get("/api/show/now-playing");
+    if (data.success) {
+      setShows(data.movies);
     }
-  };
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+  }
+};
+
 
   const fetchFavoriteMovies = async () => {
     try {
