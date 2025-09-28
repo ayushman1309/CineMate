@@ -13,6 +13,7 @@ const Navbar = () => {
   const { user } = useUser()
   const { openSignIn } = useClerk()
   const navigate = useNavigate()
+  const redirectUrl = import.meta.env.VITE_CLERK_SIGN_IN_FORCE_REDIRECT_URL
 
   return (
     <div className="fixed top-0 left-0 z-50 w-full flex items-center 
@@ -52,7 +53,13 @@ const Navbar = () => {
         <SearchIcon className="max-md:hidden w-8 h-6 cursor-pointer" />
         { 
           !user ? (
-            <button onClick={() => openSignIn({})} className="px-4 py-1 sm:py-2 bg-primary hover:bg-primary-dull 
+            <button onClick={() => openSignIn({
+              forceRedirectUrl: redirectUrl,
+              afterSignOutUrl: redirectUrl,
+              fallbackRedirectUrl: redirectUrl,
+              signUpForceRedirectUrl: redirectUrl,
+              signUpFallbackRedirectUrl: redirectUrl,
+            })} className="px-4 py-1 sm:py-2 bg-primary hover:bg-primary-dull 
             transition rounded-full font-medium cursor-pointer">
               Login
             </button>
