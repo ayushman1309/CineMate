@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import Title from "../../components/admin/Title";
 
 //import { dummyShowsData } from "../../assets/assets";
-import Loading from "../../components/Loading.jsx";
+import Loading from "../../components/Loading";
 import { dateFormat } from "../../lib/dateFormat.js";
-import { useAppContext } from "../../context/AppContext.jsx";
+import { useAppContext } from "../../context/AppContext";
 
 const ListShows = () => {
   const { axios, getToken, user } = useAppContext();

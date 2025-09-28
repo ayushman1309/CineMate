@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Title from "../../components/admin/Title.jsx";
-import Loading from "../../components/Loading.jsx";
+import Title from "../../components/admin/Title";
+import Loading from "../../components/Loading";
 //import { dummyBookingData } from "../../assets/assets";
 import { dateFormat } from "../../lib/dateFormat.js";
-import { useAppContext } from "../../context/AppContext.jsx";
+import { useAppContext } from "../../context/AppContext";
 
 const ListBookings = () => {
   const currency = import.meta.env.VITE_CURRENCY;
