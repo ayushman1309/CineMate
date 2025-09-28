@@ -42,11 +42,11 @@ export const AppProvider = ({ children }) => {
   try {
     console.log("Fetching admin-added shows from API (/api/show/all)...");
     const response = await axios.get("/api/show/all");
-    console.log("API response data:", response.data);
+    // console.log("API response data:", response.data);
 
     if (response.data.success) {
       const uniqueMovies = response.data.shows || [];
-      console.log("Movies from DB (unique by show):", uniqueMovies);
+      // console.log("Movies from DB (unique by show):", uniqueMovies);
       setShows(uniqueMovies);
     } else {
       console.error("API returned success: false", response.data.message);
