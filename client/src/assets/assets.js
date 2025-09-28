@@ -2,8 +2,6 @@ import googlePlay from './googlePlay.svg'
 import appStore from './appStore.svg'
 import screenImage from './screenImage.svg'
 import profile from './profile.png'
-import { Video } from 'lucide-react'
-import trailer from './F1Movie.mp4'
 
 export const assets = {
   googlePlay,
@@ -12,7 +10,7 @@ export const assets = {
   profile
 }
 
-import backgroundImage from './backgroundImage.png'  
+
 
 export const dummyTrailers = [
     {
