@@ -89,8 +89,7 @@ npm run dev
 
 4. Access the App
 
-Client: [(https://cinemate-main.vercel.app/
-)]
+Client: [(https://cinemate-lyart.vercel.app/)]
 
 Server: http://localhost:5000
  (or as configured)
