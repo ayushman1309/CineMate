@@ -21,7 +21,7 @@ export const dummyTrailers = [
     {
         title: "Demon Slayer - Infinity Castle Trailer",
         videoUrl: "https://www.youtube.com/embed/x7uLutVRBfI", 
-        image: "https://th.bing.com/th?id=OIF.SOqHxWo8eLPQ0i63gK%2fFCA&rs=1&pid=ImgDetMain&o=7&rm=3"
+        image: "https://image.tmdb.org/t/p/original/w2KyCngXW106bSyrfauoe1G4GuC.jpg"
     },
     {
         title: "The Conjuring - Last Rites Trailer",
